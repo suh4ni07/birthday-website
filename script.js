@@ -14,6 +14,12 @@ setInterval(fireConfetti, 8000);
 const text = "You make my life brighter every single day 💖 Always keep smiling and be funny and keep wasting your money on me hehe >_< ";
 let index = 0;
 
+function playWithSound() {
+  const video = document.getElementById("myVideo");
+  video.muted = false;
+  video.play();
+}
+
 function typeWriter() {
   if (index < text.length) {
     document.getElementById("typewriter").innerHTML += text.charAt(index);
