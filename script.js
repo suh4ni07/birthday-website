@@ -11,7 +11,7 @@ setTimeout(fireConfetti, 1000);
 setInterval(fireConfetti, 8000);
 
 // ⌨️ Typewriter Effect
-const text = "You make my life brighter every single day 💖";
+const text = "You make my life brighter every single day 💖 Always keep smiling and be funny and keep feeding me hehe >_< ";
 let index = 0;
 
 function typeWriter() {
