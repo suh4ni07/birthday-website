@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- Confetti Library -->
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -18,43 +18,37 @@
 </div>
 
 <section class="gallery">
-  <h2>Your Moments 📸</h2>
+  <h2>Our Beautiful Memories 💞</h2>
+
   <div class="images">
-    <img src="./images/pic1.jpeg">
-    <img src="./images/pic2.jpeg">
-    <img src="./images/pic3.jpeg">
-    <img src="./images/pic4.jpeg">
-    <img src="./images/pic5.jpeg">
-    <img src="./images/pic6.jpeg">
-    <img src="./images/pic7.jpeg">
-    <img src="./images/pic8.jpeg">
-    <img src="./images/pic9.jpeg">
-    <img src="./images/pic10.jpeg">
-    <img src="./images/pic11.jpeg">
-    <img src="./images/pic12.jpeg">
-    <img src="./images/pic13.jpeg">
-    <img src="./images/pic14.jpeg">
-    <img src="./images/pic15.jpeg">
+    <img src="./images/pic1.jpeg" class="zoomable" data-caption="Your smile makes everything better 💖">
+    <img src="./images/pic2.jpeg" class="zoomable" data-caption="One of my favorite memories ✨">
+    <img src="./images/pic3.jpeg" class="zoomable" data-caption="Pure happiness 🥰">
+    <img src="./images/pic4.jpeg" class="zoomable" data-caption="Forever my favorite person 💕">
+    <img src="./images/pic5.jpeg" class="zoomable" data-caption="Moments I’ll always treasure 💫">
+    <img src="./images/pic6.jpeg" class="zoomable" data-caption="This one makes me smile every time 😄">
+    <img src="./images/pic7.jpeg" class="zoomable" data-caption="You being you 💖">
+    <img src="./images/pic8.jpeg" class="zoomable" data-caption="So many memories, so much love 💞">
+    <img src="./images/pic9.jpeg" class="zoomable" data-caption="You deserve all happiness 💖">
+    <img src="./images/pic10.jpeg" class="zoomable" data-caption="moments ti cherish forever✨">
+    <img src="./images/pic11.jpeg" class="zoomable" data-caption="looking beautiful 🥰">
+    <img src="./images/pic12.jpeg" class="zoomable" data-caption="Forever cute and pretty 💕">
+    <img src="./images/pic13.jpeg" class="zoomable" data-caption="Moments we treasure 💫">
+    <img src="./images/pic14.jpeg" class="zoomable" data-caption="This one is fun just pure fun 😄">
+    <img src="./images/pic15.jpeg" class="zoomable" data-caption="You being you 💖">
   </div>
 </section>
 
-<section class="video-section">
-  <h2>A Little Video for You 🎥</h2>
+<!-- IMAGE MODAL -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
 
-  <video id="myVideo" controls muted width="320">
-    <source src="/birthday/videos/memory3.mp4">
+  <img class="modal-content" id="modalImage">
+  <div id="caption"></div>
 
-    Your browser does not support the video tag.
-  </video>
-
-  <br><br>
-
-  <button onclick="playWithSound()">Play with Sound 🔊</button>
-</section>
-
-  <audio id="bgMusic" loop>
-    <source src="./music/birthday.mp3" type="audio/mpeg">
-  </audio>
+  <span class="nav left">&#10094;</span>
+  <span class="nav right">&#10095;</span>
+</div>
 
 <footer>
   <p>Made with endless love ❤️</p>
@@ -63,4 +57,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
