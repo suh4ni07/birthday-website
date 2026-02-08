@@ -5,20 +5,38 @@ body {
   text-align: center;
 }
 
-/* ---------- HOME ---------- */
-.hero {
-  padding: 40px 20px 20px;
+/* Animations */
+.fade-in { animation: fadeIn 1.2s ease; }
+.pop-in { animation: pop 0.8s ease; }
+.bounce { animation: bounce 2s infinite; }
+
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+@keyframes pop { from {transform:scale(0.85)} to {transform:scale(1)} }
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
+
+/* Home */
+.hero { padding: 40px 20px; }
 
 .home-text {
-  max-width: 600px;
-  margin: 20px auto;
-  font-size: 16px;
+  max-width: 700px;
+  margin: 25px auto;
+  line-height: 1.7;
   color: #444;
-  line-height: 1.6;
+  font-size: 16px;
 }
 
-/* ---------- FOLDER CARD ---------- */
+.music-btn {
+  padding: 10px 22px;
+  border-radius: 20px;
+  border: none;
+  background: #ffb6c1;
+  cursor: pointer;
+}
+
+/* Folder */
 .open-gallery {
   display: flex;
   justify-content: center;
@@ -27,77 +45,82 @@ body {
 
 .folder-card {
   background: white;
-  padding: 30px 40px;
-  border-radius: 16px;
+  padding: 30px 45px;
+  border-radius: 18px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-.folder-card:hover {
-  transform: scale(1.05);
+.folder-icon { font-size: 60px; }
+
+/* Password modal */
+.password-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
 }
 
-.folder-icon {
-  font-size: 60px;
+.password-box {
+  background: white;
+  max-width: 320px;
+  margin: 150px auto;
+  padding: 30px;
+  border-radius: 16px;
 }
 
-/* ---------- BACK BUTTON ---------- */
+.password-box input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.password-box button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #ffb6c1;
+  border: none;
+  cursor: pointer;
+}
+
+#passwordError { color: red; }
+
+/* Gallery */
+.gallery { display: none; }
+
 .back-btn {
   margin: 20px;
   padding: 10px 20px;
-  border: none;
   border-radius: 20px;
   background: #ffb6c1;
-  color: #000;
+  border: none;
   cursor: pointer;
-  font-size: 14px;
-}
-
-.back-btn:hover {
-  background: #ff9aad;
-}
-
-/* ---------- GALLERY ---------- */
-.gallery {
-  display: none;
 }
 
 .images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
   gap: 25px;
   padding: 30px;
 }
 
-/* ---------- POLAROID ---------- */
 .polaroid {
   background: white;
   padding: 12px 12px 26px;
   border-radius: 8px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
-}
-
-.polaroid:hover {
-  transform: rotate(-1deg) scale(1.04);
 }
 
 .polaroid img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
-.polaroid p {
-  margin-top: 12px;
-  font-size: 14px;
-  font-style: italic;
-}
-
-/* ---------- MODAL ---------- */
+/* Image modal */
 .modal {
   display: none;
   position: fixed;
@@ -110,13 +133,6 @@ body {
   max-width: 90%;
   max-height: 80%;
   margin-top: 60px;
-  border-radius: 10px;
-}
-
-#caption {
-  color: white;
-  margin-top: 15px;
-  font-size: 18px;
 }
 
 .close {
@@ -139,9 +155,4 @@ body {
 .nav.left { left: 15px; }
 .nav.right { right: 15px; }
 
-@media (max-width: 600px) {
-  .polaroid img {
-    height: 180px;
-  }
-}
 
