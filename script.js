@@ -1,4 +1,4 @@
-// 🎆 Confetti Blast
+// 🎆 Confetti
 function fireConfetti() {
   confetti({
     particleCount: 200,
@@ -10,7 +10,7 @@ function fireConfetti() {
 setTimeout(fireConfetti, 1000);
 setInterval(fireConfetti, 8000);
 
-// ⌨️ Typewriter Effect
+// ⌨️ Typewriter
 const text =
   "You make my life brighter every single day 💖 Always keep smiling and be funny and keep wasting your money on me hehe >_< ";
 let index = 0;
@@ -22,23 +22,69 @@ function typeWriter() {
     setTimeout(typeWriter, 80);
   }
 }
-
 typeWriter();
 
-// 🎥 Play Video With Sound
-function playWithSound() {
-  const video = document.getElementById("myVideo");
-  video.muted = false;
-  video.play();
+// 🖼️ Image Modal + Swipe
+const images = document.querySelectorAll(".zoomable");
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const caption = document.getElementById("caption");
+const closeBtn = document.querySelector(".close");
+const leftBtn = document.querySelector(".nav.left");
+const rightBtn = document.querySelector(".nav.right");
+
+let currentIndex = 0;
+
+// Open modal
+images.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    currentIndex = index;
+    showImage();
+  });
+});
+
+function showImage() {
+  modalImg.src = images[currentIndex].src;
+  caption.innerText = images[currentIndex].dataset.caption || "";
 }
 
-// 🎵 Play Background Music
-function playMusic() {
-  const music = document.getElementById("bgMusic");
-  music.play();
-}
+// Close
+closeBtn.onclick = () => modal.style.display = "none";
+modal.onclick = (e) => {
+  if (e.target === modal) modal.style.display = "none";
+};
 
-// 🎂 Sweet alert
+// Navigation
+leftBtn.onclick = () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage();
+};
+
+rightBtn.onclick = () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage();
+};
+
+// 📱 Swipe support
+let startX = 0;
+
+modal.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+modal.addEventListener("touchend", e => {
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if (diff > 50) {
+    rightBtn.click(); // swipe left
+  } else if (diff < -50) {
+    leftBtn.click(); // swipe right
+  }
+});
+
+// 🎂 Alert
 setTimeout(() => {
   alert("Happy Birthday 🎉 Hope this made you smile 💕");
 }, 3000);
