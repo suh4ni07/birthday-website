@@ -1,4 +1,4 @@
-// 🎆 Confetti Effect
+// 🎆 Confetti
 function fireConfetti() {
   confetti({
     particleCount: 200,
@@ -7,12 +7,9 @@ function fireConfetti() {
   });
 }
 
-setTimeout(fireConfetti, 1000);
-setInterval(fireConfetti, 8000);
-
-// ⌨️ Typewriter Effect
+// ⌨️ Typewriter
 const text =
-  "You make my life brighter every single day 💖 Always keep smiling and be funny and keep wasting your money on me hehe >_< ";
+  "You make my life brighter every single day 💖 keep smiling and being funny >_<";
 let index = 0;
 
 function typeWriter() {
@@ -24,7 +21,20 @@ function typeWriter() {
 }
 typeWriter();
 
-// 🖼️ Image Modal + Swipe
+// 📂 Open Gallery
+function openGallery() {
+  document.getElementById("homeSection").style.display = "none";
+  document.getElementById("gallerySection").style.display = "block";
+  fireConfetti();
+}
+
+// 🏠 Back to Home
+function goHome() {
+  document.getElementById("gallerySection").style.display = "none";
+  document.getElementById("homeSection").style.display = "block";
+}
+
+// 🖼️ Modal logic
 const images = document.querySelectorAll(".zoomable");
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImage");
@@ -35,11 +45,10 @@ const rightBtn = document.querySelector(".nav.right");
 
 let currentIndex = 0;
 
-// Open modal on image click
-images.forEach((img, index) => {
+images.forEach((img, i) => {
   img.addEventListener("click", () => {
     modal.style.display = "block";
-    currentIndex = index;
+    currentIndex = i;
     showImage();
   });
 });
@@ -49,13 +58,11 @@ function showImage() {
   caption.innerText = images[currentIndex].dataset.caption || "";
 }
 
-// Close modal
 closeBtn.onclick = () => modal.style.display = "none";
-modal.onclick = (e) => {
+modal.onclick = e => {
   if (e.target === modal) modal.style.display = "none";
 };
 
-// Arrow navigation
 leftBtn.onclick = () => {
   currentIndex = (currentIndex - 1 + images.length) % images.length;
   showImage();
@@ -66,22 +73,16 @@ rightBtn.onclick = () => {
   showImage();
 };
 
-// 📱 Swipe support (mobile)
+// 📱 Swipe
 let startX = 0;
-
-modal.addEventListener("touchstart", (e) => {
+modal.addEventListener("touchstart", e => {
   startX = e.touches[0].clientX;
 });
-
-modal.addEventListener("touchend", (e) => {
+modal.addEventListener("touchend", e => {
   const diff = startX - e.changedTouches[0].clientX;
-  if (diff > 50) rightBtn.click();   // swipe left
-  if (diff < -50) leftBtn.click();   // swipe right
+  if (diff > 50) rightBtn.click();
+  if (diff < -50) leftBtn.click();
 });
 
-// 🎂 Birthday Alert
-setTimeout(() => {
-  alert("Happy Birthday 🎉 Hope this made you smile 💕");
-}, 3000);
 
 
