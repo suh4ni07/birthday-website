@@ -1,4 +1,4 @@
-// 🎆 Confetti
+// 🎆 Confetti Effect
 function fireConfetti() {
   confetti({
     particleCount: 200,
@@ -10,7 +10,7 @@ function fireConfetti() {
 setTimeout(fireConfetti, 1000);
 setInterval(fireConfetti, 8000);
 
-// ⌨️ Typewriter
+// ⌨️ Typewriter Effect
 const text =
   "You make my life brighter every single day 💖 Always keep smiling and be funny and keep wasting your money on me hehe >_< ";
 let index = 0;
@@ -35,7 +35,7 @@ const rightBtn = document.querySelector(".nav.right");
 
 let currentIndex = 0;
 
-// Open modal
+// Open modal on image click
 images.forEach((img, index) => {
   img.addEventListener("click", () => {
     modal.style.display = "block";
@@ -49,13 +49,13 @@ function showImage() {
   caption.innerText = images[currentIndex].dataset.caption || "";
 }
 
-// Close
+// Close modal
 closeBtn.onclick = () => modal.style.display = "none";
 modal.onclick = (e) => {
   if (e.target === modal) modal.style.display = "none";
 };
 
-// Navigation
+// Arrow navigation
 leftBtn.onclick = () => {
   currentIndex = (currentIndex - 1 + images.length) % images.length;
   showImage();
@@ -66,26 +66,22 @@ rightBtn.onclick = () => {
   showImage();
 };
 
-// 📱 Swipe support
+// 📱 Swipe support (mobile)
 let startX = 0;
 
-modal.addEventListener("touchstart", e => {
+modal.addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
 });
 
-modal.addEventListener("touchend", e => {
-  const endX = e.changedTouches[0].clientX;
-  const diff = startX - endX;
-
-  if (diff > 50) {
-    rightBtn.click(); // swipe left
-  } else if (diff < -50) {
-    leftBtn.click(); // swipe right
-  }
+modal.addEventListener("touchend", (e) => {
+  const diff = startX - e.changedTouches[0].clientX;
+  if (diff > 50) rightBtn.click();   // swipe left
+  if (diff < -50) leftBtn.click();   // swipe right
 });
 
-// 🎂 Alert
+// 🎂 Birthday Alert
 setTimeout(() => {
   alert("Happy Birthday 🎉 Hope this made you smile 💕");
 }, 3000);
+
 
