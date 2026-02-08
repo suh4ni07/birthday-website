@@ -28,14 +28,6 @@ body {
   font-size: 16px;
 }
 
-.music-btn {
-  padding: 10px 22px;
-  border-radius: 20px;
-  border: none;
-  background: #ffb6c1;
-  cursor: pointer;
-}
-
 /* Folder */
 .open-gallery {
   display: flex;
