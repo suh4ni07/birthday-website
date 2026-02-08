@@ -1,78 +1,95 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  color: white;
+  font-family: Arial, sans-serif;
+  background: #fff0f5;
   text-align: center;
 }
 
 .hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-}
-
-.hero h2 {
-  font-size: 1.5rem;
-  margin-top: 20px;
-}
-
-.gallery, .video-section {
-  padding: 50px 20px;
+.gallery h2 {
+  margin-top: 30px;
 }
 
 .images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 20px;
 }
 
 .images img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 20px;
-  transition: transform 0.4s;
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .images img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-video {
-  width: 90%;
-  max-width: 600px;
-  border-radius: 20px;
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+  margin-top: 60px;
+  animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+  from { transform: scale(0.8); }
+  to { transform: scale(1); }
+}
+
+#caption {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 18px;
+  padding: 0 20px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+}
+
+.nav.left {
+  left: 10px;
+}
+
+.nav.right {
+  right: 10px;
 }
 
 footer {
   padding: 20px;
-  font-size: 0.9rem;
-}
-
-/* Mobile tweaks */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero h2 {
-    font-size: 1.2rem;
-  }
-
-  .images img {
-    width: 90%;
-    height: auto;
-  }
 }
