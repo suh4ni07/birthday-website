@@ -1,6 +1,6 @@
 // Typewriter
 const text =
-  "You make my life brighter every single day 💖";
+  "You make life brighter every single day 💖 keep smiling and being fun >_<";
 let i = 0;
 
 function typeWriter() {
@@ -11,11 +11,6 @@ function typeWriter() {
   }
 }
 typeWriter();
-
-// Music
-function playMusic() {
-  document.getElementById("bgMusic").play();
-}
 
 // Password
 const CORRECT_PASSWORD = "dosa"; // 🔑 change here
