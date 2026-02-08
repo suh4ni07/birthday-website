@@ -18,7 +18,7 @@ function playMusic() {
 }
 
 // Password
-const CORRECT_PASSWORD = "forever"; // 🔑 change here
+const CORRECT_PASSWORD = "dosa"; // 🔑 change here
 
 function openPasswordModal() {
   document.getElementById("passwordModal").style.display = "block";
