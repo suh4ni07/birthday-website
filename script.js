@@ -1,40 +1,54 @@
-// 🎆 Confetti
-function fireConfetti() {
-  confetti({
-    particleCount: 200,
-    spread: 90,
-    origin: { y: 0.6 }
-  });
-}
-
-// ⌨️ Typewriter
+// Typewriter
 const text =
-  "You make my life brighter every single day 💖 keep smiling and being funny >_<";
-let index = 0;
+  "You make my life brighter every single day 💖";
+let i = 0;
 
 function typeWriter() {
-  if (index < text.length) {
-    document.getElementById("typewriter").innerHTML += text.charAt(index);
-    index++;
+  if (i < text.length) {
+    document.getElementById("typewriter").innerHTML += text.charAt(i);
+    i++;
     setTimeout(typeWriter, 80);
   }
 }
 typeWriter();
 
-// 📂 Open Gallery
+// Music
+function playMusic() {
+  document.getElementById("bgMusic").play();
+}
+
+// Password
+const CORRECT_PASSWORD = "forever"; // 🔑 change here
+
+function openPasswordModal() {
+  document.getElementById("passwordModal").style.display = "block";
+}
+
+function checkPassword() {
+  const input = document.getElementById("passwordInput").value;
+  const error = document.getElementById("passwordError");
+
+  if (input === CORRECT_PASSWORD) {
+    document.getElementById("passwordModal").style.display = "none";
+    openGallery();
+  } else {
+    error.innerText = "Wrong password 💔 Try again";
+  }
+}
+
+// Gallery
 function openGallery() {
   document.getElementById("homeSection").style.display = "none";
   document.getElementById("gallerySection").style.display = "block";
-  fireConfetti();
+  confetti({ particleCount: 200, spread: 90, origin: { y: 0.6 } });
 }
 
-// 🏠 Back to Home
 function goHome() {
   document.getElementById("gallerySection").style.display = "none";
   document.getElementById("homeSection").style.display = "block";
 }
 
-// 🖼️ Modal logic
+// Image modal
 const images = document.querySelectorAll(".zoomable");
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImage");
@@ -45,10 +59,10 @@ const rightBtn = document.querySelector(".nav.right");
 
 let currentIndex = 0;
 
-images.forEach((img, i) => {
+images.forEach((img, idx) => {
   img.addEventListener("click", () => {
     modal.style.display = "block";
-    currentIndex = i;
+    currentIndex = idx;
     showImage();
   });
 });
@@ -59,9 +73,7 @@ function showImage() {
 }
 
 closeBtn.onclick = () => modal.style.display = "none";
-modal.onclick = e => {
-  if (e.target === modal) modal.style.display = "none";
-};
+modal.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
 
 leftBtn.onclick = () => {
   currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -73,7 +85,7 @@ rightBtn.onclick = () => {
   showImage();
 };
 
-// 📱 Swipe
+// Swipe
 let startX = 0;
 modal.addEventListener("touchstart", e => {
   startX = e.touches[0].clientX;
@@ -83,6 +95,5 @@ modal.addEventListener("touchend", e => {
   if (diff > 50) rightBtn.click();
   if (diff < -50) leftBtn.click();
 });
-
 
 
