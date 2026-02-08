@@ -1,6 +1,7 @@
+/* ---------- GLOBAL ---------- */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: #fff0f5;
   text-align: center;
 }
@@ -9,87 +10,104 @@ body {
   padding: 40px 20px;
 }
 
-.gallery h2 {
-  margin-top: 30px;
-}
-
+/* ---------- GALLERY GRID ---------- */
 .images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  padding: 30px;
 }
 
-.images img {
+/* ---------- POLAROID FRAME ---------- */
+.polaroid {
+  background: #ffffff;
+  padding: 12px 12px 26px;
+  border-radius: 8px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: rotate(-1deg) scale(1.04);
+}
+
+.polaroid img {
   width: 100%;
-  border-radius: 15px;
+  height: 220px;              /* SAME FRAME HEIGHT */
+  object-fit: cover;          /* NO STRETCHING */
+  border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.images img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+/* Polaroid caption */
+.polaroid p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #333;
+  font-style: italic;
 }
 
-/* MODAL */
+/* ---------- MODAL ---------- */
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
   inset: 0;
   background: rgba(0, 0, 0, 0.9);
+  z-index: 999;
 }
 
 .modal-content {
-  margin: auto;
-  display: block;
   max-width: 90%;
   max-height: 80%;
-  border-radius: 12px;
   margin-top: 60px;
+  border-radius: 10px;
   animation: zoom 0.3s ease;
 }
 
 @keyframes zoom {
-  from { transform: scale(0.8); }
+  from { transform: scale(0.85); }
   to { transform: scale(1); }
 }
 
 #caption {
-  color: #fff;
+  color: #ffffff;
   margin-top: 15px;
   font-size: 18px;
   padding: 0 20px;
 }
 
+/* Close button */
 .close {
   position: absolute;
   top: 20px;
   right: 30px;
   font-size: 40px;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
 }
 
+/* Navigation arrows */
 .nav {
   position: absolute;
   top: 50%;
   font-size: 50px;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
-  padding: 10px;
   user-select: none;
 }
 
 .nav.left {
-  left: 10px;
+  left: 15px;
 }
 
 .nav.right {
-  right: 10px;
+  right: 15px;
 }
 
-footer {
-  padding: 20px;
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  .polaroid img {
+    height: 180px;
+  }
 }
+
