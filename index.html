@@ -12,33 +12,67 @@
 </head>
 <body>
 
-<!-- HOME SECTION -->
-<section id="homeSection">
+<!-- 🎶 Background Music -->
+<audio id="bgMusic" loop>
+  <source src="./music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ================= HOME ================= -->
+<section id="homeSection" class="fade-in">
+
   <div class="hero">
-    <h1>🎉 Happy Birthday VRUKSHI 🎉</h1>
+    <h1 class="pop-in">🎉 Happy Birthday VRUKSHI 🎉</h1>
     <h2 id="typewriter"></h2>
 
     <p class="home-text">
-      This little website is just a small way of saying how special you are 🤍  
-      Every photo here holds a memory, a smile, a moment you never want to forget.  
-      Tap below and relive them ✨
+      Today isn’t just another day — it’s the day someone incredibly special came into this world 🤍  
+      Someone whose smile can brighten even the dullest moments,  
+      whose presence makes everything feel lighter, warmer, and happier.
+
+      <br><br>
+
+      This little corner of the internet was made just for you.  
+      Every word, every photo, every click here holds a memory,  
+      a laugh, a moment I never want to forget.
+
+      <br><br>
+
+      Some memories are too precious to be seen by everyone…  
+      They’re meant to be unlocked only by the one who truly belongs there 💫  
+      When you’re ready, open the folder below.
     </p>
+
+    <button class="music-btn" onclick="playMusic()">Play Music 🎶</button>
   </div>
 
-  <!-- CLICK HERE CARD -->
+  <!-- Folder -->
   <div class="open-gallery">
-    <div class="folder-card" onclick="openGallery()">
+    <div class="folder-card bounce" onclick="openPasswordModal()">
       <div class="folder-icon">📁</div>
       <h2>Click here to see our memories 🤍</h2>
-      <p>(Tap to open)</p>
+      <p>(Password protected)</p>
     </div>
   </div>
+
 </section>
 
-<!-- GALLERY SECTION -->
-<section class="gallery" id="gallerySection">
-  <button class="back-btn" onclick="goHome()">← Back to Home</button>
+<!-- ================= PASSWORD MODAL ================= -->
+<div id="passwordModal" class="password-modal">
+  <div class="password-box">
+    <h2>🔒 Enter Password</h2>
+    <p>(Hint: something special to us 💖)</p>
 
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <p id="passwordError"></p>
+
+    <button onclick="checkPassword()">Unlock 💝</button>
+  </div>
+</div>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallerySection">
+
+  <button class="back-btn" onclick="goHome()">← Back to Home</button>
   <h2>Our Beautiful Memories 💞</h2>
 
   <div class="images">
@@ -58,74 +92,20 @@
       <p>Pure happiness 🥰</p>
     </div>
 
-     <div class="polaroid">
+    <div class="polaroid">
       <img src="./images/pic4.jpeg" class="zoomable" data-caption="Forever my favorite person 💕">
       <p>Forever my favorite person 💕</p>
     </div>
 
-    <div class="polaroid">
-      <img src="./images/pic5.jpeg" class="zoomable" data-caption="Moments I’ll always treasure 💫">
-      <p>Moments I’ll always treasure 💫</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic6.jpeg" class="zoomable" data-caption="This one makes me smile every time 😄">
-      <p>This one makes me smile every time 😄</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic7.jpeg" class="zoomable" data-caption="You being you 💖">
-      <p>You being you 💖</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic8.jpeg" class="zoomable" data-caption="So many memories, so much love 💞">
-      <p>So many memories, so much love 💞</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic9.jpeg" class="zoomable" data-caption="You deserve all happiness 💖">
-      <p>You deserve all happiness 💖</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic10.jpeg" class="zoomable" data-caption="Moments to cherish forever ✨">
-      <p>Moments to cherish forever ✨</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic11.jpeg" class="zoomable" data-caption="Looking beautiful 🥰">
-      <p>Looking beautiful 🥰</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic12.jpeg" class="zoomable" data-caption="Forever cute and pretty 💕">
-      <p>Forever cute and pretty 💕</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic13.jpeg" class="zoomable" data-caption="Moments we treasure 💫">
-      <p>Moments we treasure 💫</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic14.jpeg" class="zoomable" data-caption="This one is fun, just pure fun 😄">
-      <p>This one is fun, just pure fun 😄</p>
-    </div>
-
-    <div class="polaroid">
-      <img src="./images/pic15.jpeg" class="zoomable" data-caption="You being you 💖">
-      <p>You being you 💖</p>
-    </div>
-    <!-- add remaining photos the same way -->
+    <!-- add remaining images the same way -->
 
   </div>
 </section>
 
-<!-- IMAGE MODAL -->
+<!-- ================= IMAGE MODAL ================= -->
 <div id="imageModal" class="modal">
   <span class="close">&times;</span>
-  <img class="modal-content" id="modalImage">
+  <img id="modalImage" class="modal-content">
   <div id="caption"></div>
   <span class="nav left">&#10094;</span>
   <span class="nav right">&#10095;</span>
@@ -138,4 +118,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
